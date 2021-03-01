@@ -46,8 +46,15 @@ class UserControl {
             }
 
             const token = jwt.sign({ _id: user._id }, jwtPrivateKey)
-            let payload = {user:user}
-            res.render( 'home',payload);
+            req.session.user = user;
+            if(req.session.user != undefined){
+                console.log("req.session",req.session.user)
+                let payload = {user:user,pageTitle:"Home"}
+                res.render('home',payload);
+                return
+            }
+        res.redirect('/login'); 
+            
             //  return res.status(200).json({user:user, token: token })
         } catch (err) {
             return generateResponse(res, 400, err.message)

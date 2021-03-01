@@ -1,0 +1,19 @@
+mixin createPostForm(userLoggedIn)
+    .postFormContainer 
+        .userImageContainer
+            img(src=userLoggedIn.profilePic alt="user profile pic")
+        .textareaContainer 
+            textarea#postTextarea(placeholder="what's happening" name="content")
+            .buttonsContainer 
+                button#submitPostButton(disabled="") post
+
+
+    //- script.
+    //-     var textbox = document.getElementById('postTextarea')
+    //-     var submit = document.getElementById('submitPostButton')
+    //-     var form1 = document.getElementById('Form')
+
+    //-     function validateForm(){
+    //-             form1.submit();
+    //-         }
+    //-     }
